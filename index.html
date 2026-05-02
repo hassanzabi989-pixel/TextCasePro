@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextCasePro - Free Online Text Case Converter Tool</title>
+    <meta name="description"
+        content="Free online text case converter tool. Easily convert text to uppercase, lowercase, title case, sentence case, and more. Fast, secure, and client-side processing.">
+    <meta name="keywords"
+        content="text case converter, uppercase converter, lowercase converter, title case generator, sentence case tool, text editor">
+    <meta name="author" content="TextCasePro">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://textcasepro.com/">
+    <meta property="og:title" content="TextCasePro - Master Your Text Formatting">
+    <meta property="og:description"
+        content="The ultimate free tool to convert text case. Uppercase, lowercase, sentence case, and more. dragging, dropping, and editing made easy.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="TextCasePro - Master Your Text Formatting">
+    <meta property="twitter:description" content="Fast, private, and free text case converter. Zero server storage.">
+
+    <!-- Fonts (with offline fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon Placeholders -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>Aa</text></svg>">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">Aa</span>
+                <span class="logo-text">TextCasePro</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact" class="btn-secondary">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>The Smartest Way to <span class="gradient-text">Format Text</span></h1>
+            <p class="hero-subtitle">Instantly convert text between Uppercase, Lowercase, Title Case, and more. Private,
+                fast, and runs entirely in your browser.</p>
+        </div>
+    </header>
+
+    <!-- Main Tool Section -->
+    <main class="tool-section" id="tool">
+        <div class="container">
+            <div class="converter-card">
+
+                <!-- Toolbar -->
+                <div class="toolbar">
+                    <div class="toolbar-group">
+                        <button id="btn-copy" class="tool-btn" title="Copy to Clipboard">
+                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                        <button id="btn-paste" class="tool-btn" title="Paste from Clipboard">
+                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                            <span>Paste</span>
+                        </button>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="file-upload" accept=".txt,.md,.json,.csv,.docx" hidden>
+                            <button id="btn-upload" class="tool-btn" title="Upload Text File">
+                                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                </svg>
+                                <span>Upload File</span>
+                            </button>
+                        </div>
+                        <button id="btn-clear" class="tool-btn danger" title="Clear All Text">
+                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                            <span>Clear</span>
+                        </button>
+                    </div>
+                    <div class="toolbar-stats">
+                        <span id="char-count">0 Characters</span>
+                        <span class="divider">|</span>
+                        <span id="word-count">0 Words</span>
+                    </div>
+                </div>
+
+                <!-- Editor Area -->
+                <div class="editor-wrapper" id="drop-zone">
+                    <textarea id="main-editor" placeholder="Type, paste content here, or drag & drop a text file..."
+                        spellcheck="false"></textarea>
+                    <div id="drop-overlay" class="hidden">
+                        <div class="drop-message">
+                            <svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                            <p>Drop file to extract text</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Action Buttons (Main) -->
+                <div class="action-panel">
+                    <div class="action-group">
+                        <button class="action-btn primary" data-action="sentence">Sentence case</button>
+                        <button class="action-btn primary" data-action="lower">lower case</button>
+                        <button class="action-btn primary" data-action="upper">UPPER CASE</button>
+                        <button class="action-btn primary" data-action="title">Title Case</button>
+                        <button class="action-btn" data-action="capitalized">Capitalized Case</button>
+                        <button class="action-btn" data-action="alternating">aLtErNaTiNg cAsE</button>
+                        <button class="action-btn" data-action="inverse">InVeRsE CaSe</button>
+                        <button class="action-btn" data-action="download">Download Text</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Context Info / SEO -->
+            <div class="info-grid" id="features">
+                <div class="info-card">
+                    <h3>⚡ Lightning Fast</h3>
+                    <p>Conversions happen instantly in your browser. No server uploads means zero waiting time.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🔒 100% Secure</h3>
+                    <p>Your text never leaves your device. We prioritize your privacy by keeping everything client-side.
+                    </p>
+                </div>
+                <div class="info-card">
+                    <h3>📂 File Support</h3>
+                    <p>Drag and drop .txt files directly into the editor to instantly load and format their content.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- SEO Content Section -->
+    <section class="seo-section">
+        <div class="container">
+            <h2>Why Use TextCasePro?</h2>
+            <p>Whether you're writing an email, coding, or preparing a document, consistent text formatting is crucial.
+                Accidentally left Caps Lock on? Need to capitalize titles for a blog post? TextCasePro handles it all
+                with a single click.</p>
+
+            <h3>Available Conversions:</h3>
+            <ul>
+                <li><strong>Sentence Case:</strong> Capitalizes the first letter of each sentence. Perfect for standard
+                    writing.</li>
+                <li><strong>Lower Case:</strong> Converts all characters to lowercase. Useful for cleaning up data.</li>
+                <li><strong>Upper Case:</strong> Converts all text to capital letters. Great for headers or emphasis.
+                </li>
+                <li><strong>Title Case:</strong> Capitalizes the first letter of every major word. Ideal for headlines
+                    and titles.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Is this tool free?</h4>
+                    <p>Yes, TextCasePro is 100% free to use for unlimited text conversions.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you store my text?</h4>
+                    <p>No. All processing is done locally in your browser. We never see or store your text.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I convert specific words?</h4>
+                    <p>Yes! Simply highlight the text you want to change, and a floating menu will appear with
+                        conversion options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">TextCasePro</span>
+                    <p>Simple code. Premium tools.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 TextCasePro. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Menu -->
+    <div id="floating-menu" class="hidden">
+        <button data-action="upper">UPPER</button>
+        <button data-action="lower">lower</button>
+        <button data-action="title">Title</button>
+        <button data-action="sentence">Sentence</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
